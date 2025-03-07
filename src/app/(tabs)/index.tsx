@@ -12,7 +12,10 @@ export default function TabOneScreen() {
       <Stack.Screen options={{title:'Stocks'}}/>
       <FlatList
       data={stocks}
-      renderItem={({item}) => <Text><StockListItem stock={item}/></Text>}
+      renderItem={({item}) => <Text><StockListItem stock={item}/></Text>
+    
+    }
+    contentContainerStyle={{gap:10, padding:10}} // gap between name of stocks
       />
     </View>
   );
