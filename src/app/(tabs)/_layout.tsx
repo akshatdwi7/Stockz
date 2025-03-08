@@ -30,7 +30,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Stocks',
-          tabBarIcon: ({ color }) => <TabBarIcon name="dollar" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="money" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
