@@ -19,15 +19,17 @@ export default function StockListItem({ stock }: StockListItem) {
   return (
     <Link href={`/${stock.symbol}`} asChild>
     <Pressable style={styles.container}>
-         {/* left container */}
+        
     <View style={{flex  :1 ,gap:5}}>
+       {/* left container */}
       <Text  style={styles.symbol}>
         {stock.symbol} <AntDesign name="staro" size={20} color="grey" />{" "}
       </Text>
       <Text style={{ color: "gray" }}>{stock.name}</Text>
       </View >
-        {   /* right container */}
+       
       <View style={{alignItems:'flex-end'}}>
+      {   /* right container */}
         <MonoText>${Number.parseFloat(stock.close).toFixed(1)}</MonoText>
         <MonoText style={{color:change>0?'green':'red'}}>
             {change>0?'+':''}
