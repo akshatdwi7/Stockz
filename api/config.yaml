@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: "data1"
+      Authorization: "apikey a084384b4b95457587d9bdddc667c50c"

@@ -30,6 +30,13 @@ type Quote {
 }
 
 type Query {
-  quote(apikey: String, symbol: String): Quote
-    @rest(endpoint: "https://api.twelvedata.com/quote")
+  quote(symbol: String): Quote
+    @rest(endpoint: "https://api.twelvedata.com/quote"
+    configuration:"data1")
+
+     quote1(symbol: String): Quote
+    @rest(endpoint: "https://api.twelvedata.com/quote"
+    configuration:"data1")
+
+
 }
