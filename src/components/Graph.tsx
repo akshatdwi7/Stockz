@@ -6,16 +6,42 @@ import { FontWeight, point } from "@shopify/react-native-skia";
 import { MonoText } from "./StyledText";
 import { green } from "react-native-reanimated/lib/typescript/Colors";
 import { useState } from "react";
+import { useQuery,gql } from "@apollo/client";
+import { ActivityIndicator } from "react-native";
 
-const Graph = () => {
+const query = gql`
+query MyQuery($symbol: String!, $interval: String!) {
+  time_series(interval: $interval, symbol: $symbol) {
+    values {
+      datetime
+      close
+    }
+  }
+}
+`
 
-  const points: GraphPoint[] = timeseries.values.map((value) => ({
+const Graph = ({symbol}:{symbol:string}) => {
+  const [selectedPoint, setSelectedPoint] = useState<GraphPoint>();
+    const{data,loading,error}=useQuery(query,{
+      variables:{
+        symbol,
+        interval:'1day',
+      },
+    });
+
+    if(loading){
+      return <ActivityIndicator/>
+    }
+    if(error){
+      return <Text> Trying but error</Text>
+    }
+    console.log(data)
+
+  const points: GraphPoint[] = data.time_series.values.map((value) => ({
     date: new Date(value.datetime),
     value: Number.parseFloat(value.close),
   }));
-  const [selectedPoint, setSelectedPoint] = useState<GraphPoint>(
-    points[points.length - 1]
-  );
+
   const onPointSelected = (point: GraphPoint) => {
     setSelectedPoint(point);
   };

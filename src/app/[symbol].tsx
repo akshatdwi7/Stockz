@@ -34,7 +34,7 @@ const StockDetails = () => {
     <View style={{padding:10}}>
       <Stack.Screen options={{title:stock.symbol,headerBackTitle:'back'}}/>
      <StockListItem stock ={stock} />
-     <Graph />
+     <Graph symbol={stock.symbol}/>
     </View>
   )
 }
