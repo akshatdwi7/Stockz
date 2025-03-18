@@ -1,4 +1,7 @@
 configurationset:
   - configuration:
+      name: postgresql_config
+      uri: postgresql://ep-morning-lab-a5wcu2fa-pooler.us-east-2.aws.neon.tech/neondb?user=neondb_owner&password=npg_bRoYQD2FIp5K
+  - configuration:
       name: data1
       Authorization: apikey a084384b4b95457587d9bdddc667c50c
